@@ -35,12 +35,11 @@ public class Samosa_web {
             // Select "Veg" 
             page.locator("span div.veg-flag").nth(0).click(); 
             
-            // Wait for food items to load (based on how the site populates the items)
-            //page.locator(".food-item-class").waitFor(); // Replace with actual class or identifier for food items
+            
  
-            // Capture the list of food items (name, price, and image)
-            List<String> foodNames = page.locator(".item-title").allTextContents();  // Replace with actual class
-            List<String> foodPrices = page.locator("xpath =//p[contains(@class,'pric e-p')]").allTextContents(); // Replace with actual class
+            // Captured the list of food items (name, price, and image)
+            List<String> foodNames = page.locator(".item-title").allTextContents();  
+            List<String> foodPrices = page.locator("xpath =//p[contains(@class,'pric e-p')]").allTextContents(); 
             List<ElementHandle> foodImages = page.locator("xpath =//div[contains(@id,'item')]/img").elementHandles();
             List<String> imageUrls = new ArrayList<String>();
 
@@ -57,7 +56,7 @@ public class Samosa_web {
                 System.out.println("Image URL: " + imageUrls.get(i));
             }
  
-            // Write the captured data to Excel
+            // update the captured data to Excel
             writeDataToExcel(foodNames, foodPrices, imageUrls);
  
             // Close the browser
